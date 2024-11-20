@@ -1,0 +1,42 @@
+Szczegółowy plan projektu gier hazardowych.
+
+1. Przygotowanie środowiska projektowego
+Skonfigurować repozytorium GitHub (README, struktura katalogów, plik .gitignore).
+Wybrać i skonfigurować środowisko pracy (Visual Studio, ASP.NET).
+Zainstalować i skonfigurować potrzebne pakiety NuGet (np. Entity Framework, ASP.NET Core Identity).
+2. Projekt bazy danych
+Zaprojektować schemat bazy danych (użytkownicy, historia gier, saldo użytkownika).
+Utworzyć modele danych w C# dla tabel: Users, GameHistory, Bets.
+Skonfigurować bazę danych SQLite (dla uproszczenia) lub MS SQL Server.
+Stworzyć migracje w Entity Framework i zainicjalizować bazę.
+3. Frontend aplikacji
+Zaprojektować podstawowy interfejs strony głównej (HTML, CSS, Bootstrap).
+Dodać widok rejestracji i logowania użytkownika.
+Stworzyć stronę z panelem użytkownika (saldo, historia gier).
+Opracować prosty interfejs gry w ruletkę (np. wybór zakładów, animacja losowania).
+4. Backend aplikacji
+Zaimplementować rejestrację i logowanie użytkowników z użyciem ASP.NET Core Identity.
+Stworzyć kontroler do obsługi profilu użytkownika (saldo, historia gier).
+Stworzyć kontroler do obsługi gry w ruletkę:
+Zaimplementować mechanizm losowania wyniku ruletki.
+Zaimplementować logikę przeliczania wygranych i przegranych zakładów.
+Zaktualizować saldo użytkownika po każdej grze.
+Dodać API do komunikacji między frontendem a backendem.
+5. Bezpieczeństwo
+Zaimplementować mechanizm walidacji danych wejściowych (np. ASP.NET Model Validation).
+Dodać podstawowe zabezpieczenia przed SQL Injection i XSS.
+Zabezpieczyć API kluczem dostępu (JWT).
+6. Testowanie
+Napisać testy jednostkowe dla logiki gry w ruletkę.
+Przeprowadzić testy integracyjne dla API.
+Przeprowadzić manualne testy interfejsu użytkownika.
+7. Dokumentacja
+Opisać instalację i uruchamianie projektu w pliku README.md.
+Utworzyć prostą dokumentację API (np. w formacie Markdown w repozytorium).
+Dodać diagram architektury aplikacji do repozytorium.
+Prosty model gry w ruletkę
+Zaimplementować logikę gry w ruletkę:
+Obsłużyć zakłady na pojedyncze liczby.
+Obsłużyć zakłady na kolory (czerwony/czarny).
+Zaimplementować mechanizm losowego generowania wyniku.
+Wyświetlić historię ostatnich wyników na stronie gry.
