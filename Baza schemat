@@ -1,0 +1,26 @@
+┌──────────────────────────────────────────┐
+│                 Uzytkownik               │
+├────────────┬──────────────┬──────────────┤
+│  Column    │     Type     │    Details   │
+├────────────┼──────────────┼──────────────┤
+│  iduser    │     INT      │ PK, AutoInc  │
+├────────────┼──────────────┼──────────────┤
+│  login     │   VARCHAR    │    Unique    │
+├────────────┼──────────────┼──────────────┤
+│  haslo     │   VARCHAR    │  Not Null    │
+├────────────┼──────────────┼──────────────┤
+│  money     │   DECIMAL    │ Default 0.00 │
+├────────────┼──────────────┼──────────────┤
+│  wygrane   │     INT      │ Default 0    │
+├────────────┼──────────────┼──────────────┤
+│  przegrane │     INT      │ Default 0    │
+└────────────┴──────────────┴──────────────┘
+
+CREATE TABLE Uzytkownik (
+    iduser INT PRIMARY KEY AUTO_INCREMENT,
+    login VARCHAR(50) NOT NULL UNIQUE,
+    haslo VARCHAR(255) NOT NULL,
+    money DECIMAL(10, 2) DEFAULT 0.00,
+    wygrane INT DEFAULT 0,
+    przegrane INT DEFAULT 0
+);
