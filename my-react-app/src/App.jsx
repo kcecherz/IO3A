@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import React, { useState } from 'react';
+import RouletteWheel from './components/RouletteWheel';
+import BetControls from './components/BetControls';
+import RecentResults from './components/RecentResults';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [currentBet, setCurrentBet] = useState(null);
+  const [balance, setBalance] = useState(1000); // Początkowe saldo gracza
+  const [betType, setBetType] = useState(null);
+  const [betValue, setBetValue] = useState(null);
+  const [betAmount, setBetAmount] = useState(null);
+  const [results, setResults] = useState([]);
+
+  const placeBet = (bet, type, value) => {
+    if (bet <= balance) {
+      setCurrentBet(value);
+      setBetType(type);
+      setBetValue(value);
+      setBetAmount(bet); // Ustawienie kwoty zakładu
+      console.log(`Bet placed: ${bet} on ${type} ${value}`);
+      updateBalance(-bet);
+    } else {
+      alert("You don't have enough balance to place this bet.");
+    }
+  };
+
+  const updateBalance = (amount) => {
+    setBalance(balance + amount);
+  };
+
+  const handleSpinEnd = (result) => {
+    setResults((prevResults) => {
+      const newResults = [result, ...prevResults];
+      return newResults.slice(0, 5);
+    });
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="App">
+      <h1>Roulette Game</h1>
+      <p>Your current balance: ${balance}</p>
+      <RouletteWheel updateBalance={updateBalance} betAmount={betAmount} currentBet={currentBet} betType={betType} onSpinEnd={handleSpinEnd} />
+      <BetControls placeBet={placeBet} selectedBetValue={betValue} updateBalance={updateBalance} balance={balance} />
+      {currentBet !== null && betType !== null && <p>Your current bet: {betAmount} on {betType} {betValue}</p>}
+      <RecentResults results={results} />
+    </div>
+  );
+};
 
-export default App
+export default App;
