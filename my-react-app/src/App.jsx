@@ -6,7 +6,7 @@ import RecentResults from './components/RecentResults';
 
 const App = () => {
   const [currentBet, setCurrentBet] = useState(null);
-  const [balance, setBalance] = useState(1000); // Początkowe saldo gracza
+  const [balance, setBalance] = useState(1000);
   const [betType, setBetType] = useState(null);
   const [betValue, setBetValue] = useState(null);
   const [betAmount, setBetAmount] = useState(null);
