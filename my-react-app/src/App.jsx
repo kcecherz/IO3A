@@ -17,7 +17,7 @@ const App = () => {
       setCurrentBet(value);
       setBetType(type);
       setBetValue(value);
-      setBetAmount(bet); // Ustawienie kwoty zakładu
+      setBetAmount(bet); 
       console.log(`Bet placed: ${bet} on ${type} ${value}`);
       updateBalance(-bet);
     } else {
