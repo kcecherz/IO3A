@@ -39,7 +39,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Roulette Game</h1>
-      <p>Your current balance: ${balance}</p>
+      <p>Your current balance: {balance}$</p>
       <RouletteWheel updateBalance={updateBalance} betAmount={betAmount} currentBet={currentBet} betType={betType} onSpinEnd={handleSpinEnd} />
       <BetControls placeBet={placeBet} selectedBetValue={betValue} updateBalance={updateBalance} balance={balance} />
       {currentBet !== null && betType !== null && <p>Your current bet: {betAmount} on {betType} {betValue}</p>}
