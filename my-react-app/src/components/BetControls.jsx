@@ -17,7 +17,7 @@ const BetControls = ({ placeBet, selectedBetValue, updateBalance }) => {
 
   const handleBetTypeChange = (e) => {
     setBetType(e.target.value);
-    setBetValue(''); // Resetuj wartość zakładu po zmianie typu
+    setBetValue('');
   };
 
   const handleBetValueChange = (e) => {
@@ -26,7 +26,7 @@ const BetControls = ({ placeBet, selectedBetValue, updateBalance }) => {
 
   const handleBetSubmit = () => {
     placeBet(Number(betAmount), betType, betValue);
-    updateBalance(-Number(betAmount)); // Odejmij betAmount od salda
+    updateBalance(-Number(betAmount));
   };
 
   return (
