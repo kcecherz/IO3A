@@ -65,13 +65,12 @@ const RouletteWheel = ({ updateBalance, betAmount, currentBet, betType }) => {
   const handleBetResult = (winningNumber) => {
     if (betAmount !== null && betType !== null) {
       if (winningNumber === '0') {
-        updateBalance(betAmount * 35); // Wypłata 35:1 dla zielonego
+        updateBalance(betAmount * 35); 
       } else if (betType === 'number' && winningNumber === currentBet) {
-        updateBalance(betAmount * 2); // Wypłata 2:1 dla trafienia liczby
+        updateBalance(betAmount * 2);
       } else if (betType === 'color' && data[prizeNumber].style.backgroundColor === currentBet) {
-        updateBalance(betAmount * 2); // Wypłata 2:1 dla trafienia koloru
+        updateBalance(betAmount * 2); 
       }
-      // Nie zmniejszaj salda ponownie w przypadku przegranej
     }
   };
 
